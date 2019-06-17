@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee9c35122abd23458ddb18edd496d6a, type: 3}
+  m_Name: ItemDatabase
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 7288639892835755273, guid: 2b70a2a62c17bba4cb44c085725bb7ea, type: 3}
+  rarities:
+  - {fileID: 11400000, guid: f89ef1e32bb1d254ca0ae3824943490e, type: 2}
+  - {fileID: 11400000, guid: 40acb036c0c30f44ca730a264ccbfd59, type: 2}
+  - {fileID: 11400000, guid: 7125863ca0ae10a4e89323a7c15b1c7c, type: 2}
+  - {fileID: 11400000, guid: aba579849313f9d4da29b9313cb76c59, type: 2}
+  - {fileID: 11400000, guid: 8b31326cf93c08a4b8fe1e4bf724beaa, type: 2}
+  categories:
+  - {fileID: 11400000, guid: bdc30fc952912b8419ff9b36b88561b9, type: 2}
+  - {fileID: 11400000, guid: 21ea22936b409324ebdb0b376f8249ca, type: 2}
+  statDefinitions:
+  - {fileID: 11400000, guid: a66a6116871ee7f46b5819612cf73f4f, type: 2}
+  - {fileID: 11400000, guid: 35d1758f15f923541b4f38b70833a6c8, type: 2}
+  - {fileID: 11400000, guid: c4066b6acd1d127489a3952b747fc7ff, type: 2}
+  equipmentTypes:
+  - {fileID: 11400000, guid: 55c29fc59524d9f4581bb63b0aa70896, type: 2}
+  - {fileID: 11400000, guid: 981009b6ebb62274a9b48032a8e77400, type: 2}
+  craftingCategories: []
+  currencies: []
+  itemRarities: []
+  itemCategories: []
+  itemProperties: []
+  equipTypes: []
+  inventoryCraftingCategories: []
+  inventoryCurrencies: []

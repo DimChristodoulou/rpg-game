@@ -1,0 +1,509 @@
+fileFormatVersion: 2
+guid: f517b00f2fcbeec44a432529a610f3dd
+ModelImporter:
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: VAMPIRE
+  - first:
+      1: 100004
+    second: VAMPIRE_
+  - first:
+      1: 100006
+    second: VAMPIRE_ Head
+  - first:
+      1: 100008
+    second: VAMPIRE_ L Calf
+  - first:
+      1: 100010
+    second: VAMPIRE_ L Clavicle
+  - first:
+      1: 100012
+    second: VAMPIRE_ L Finger0
+  - first:
+      1: 100014
+    second: VAMPIRE_ L Finger01
+  - first:
+      1: 100016
+    second: VAMPIRE_ L Finger02
+  - first:
+      1: 100018
+    second: VAMPIRE_ L Finger1
+  - first:
+      1: 100020
+    second: VAMPIRE_ L Finger11
+  - first:
+      1: 100022
+    second: VAMPIRE_ L Finger12
+  - first:
+      1: 100024
+    second: VAMPIRE_ L Finger2
+  - first:
+      1: 100026
+    second: VAMPIRE_ L Finger21
+  - first:
+      1: 100028
+    second: VAMPIRE_ L Finger22
+  - first:
+      1: 100030
+    second: VAMPIRE_ L Finger3
+  - first:
+      1: 100032
+    second: VAMPIRE_ L Finger31
+  - first:
+      1: 100034
+    second: VAMPIRE_ L Finger32
+  - first:
+      1: 100036
+    second: VAMPIRE_ L Finger4
+  - first:
+      1: 100038
+    second: VAMPIRE_ L Finger41
+  - first:
+      1: 100040
+    second: VAMPIRE_ L Finger42
+  - first:
+      1: 100042
+    second: VAMPIRE_ L Foot
+  - first:
+      1: 100044
+    second: VAMPIRE_ L Forearm
+  - first:
+      1: 100046
+    second: VAMPIRE_ L Hand
+  - first:
+      1: 100048
+    second: VAMPIRE_ L Thigh
+  - first:
+      1: 100050
+    second: VAMPIRE_ L Toe0
+  - first:
+      1: 100052
+    second: VAMPIRE_ L UpperArm
+  - first:
+      1: 100054
+    second: VAMPIRE_ Neck
+  - first:
+      1: 100056
+    second: VAMPIRE_ Neck1
+  - first:
+      1: 100058
+    second: VAMPIRE_ Pelvis
+  - first:
+      1: 100060
+    second: VAMPIRE_ Ponytail1
+  - first:
+      1: 100062
+    second: VAMPIRE_ R Calf
+  - first:
+      1: 100064
+    second: VAMPIRE_ R Clavicle
+  - first:
+      1: 100066
+    second: VAMPIRE_ R Finger0
+  - first:
+      1: 100068
+    second: VAMPIRE_ R Finger01
+  - first:
+      1: 100070
+    second: VAMPIRE_ R Finger02
+  - first:
+      1: 100072
+    second: VAMPIRE_ R Finger1
+  - first:
+      1: 100074
+    second: VAMPIRE_ R Finger11
+  - first:
+      1: 100076
+    second: VAMPIRE_ R Finger12
+  - first:
+      1: 100078
+    second: VAMPIRE_ R Finger2
+  - first:
+      1: 100080
+    second: VAMPIRE_ R Finger21
+  - first:
+      1: 100082
+    second: VAMPIRE_ R Finger22
+  - first:
+      1: 100084
+    second: VAMPIRE_ R Finger3
+  - first:
+      1: 100086
+    second: VAMPIRE_ R Finger31
+  - first:
+      1: 100088
+    second: VAMPIRE_ R Finger32
+  - first:
+      1: 100090
+    second: VAMPIRE_ R Finger4
+  - first:
+      1: 100092
+    second: VAMPIRE_ R Finger41
+  - first:
+      1: 100094
+    second: VAMPIRE_ R Finger42
+  - first:
+      1: 100096
+    second: VAMPIRE_ R Foot
+  - first:
+      1: 100098
+    second: VAMPIRE_ R Forearm
+  - first:
+      1: 100100
+    second: VAMPIRE_ R Hand
+  - first:
+      1: 100102
+    second: VAMPIRE_ R Thigh
+  - first:
+      1: 100104
+    second: VAMPIRE_ R Toe0
+  - first:
+      1: 100106
+    second: VAMPIRE_ R UpperArm
+  - first:
+      1: 100108
+    second: VAMPIRE_ Spine
+  - first:
+      1: 100110
+    second: VAMPIRE_ Spine1
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: VAMPIRE
+  - first:
+      4: 400004
+    second: VAMPIRE_
+  - first:
+      4: 400006
+    second: VAMPIRE_ Head
+  - first:
+      4: 400008
+    second: VAMPIRE_ L Calf
+  - first:
+      4: 400010
+    second: VAMPIRE_ L Clavicle
+  - first:
+      4: 400012
+    second: VAMPIRE_ L Finger0
+  - first:
+      4: 400014
+    second: VAMPIRE_ L Finger01
+  - first:
+      4: 400016
+    second: VAMPIRE_ L Finger02
+  - first:
+      4: 400018
+    second: VAMPIRE_ L Finger1
+  - first:
+      4: 400020
+    second: VAMPIRE_ L Finger11
+  - first:
+      4: 400022
+    second: VAMPIRE_ L Finger12
+  - first:
+      4: 400024
+    second: VAMPIRE_ L Finger2
+  - first:
+      4: 400026
+    second: VAMPIRE_ L Finger21
+  - first:
+      4: 400028
+    second: VAMPIRE_ L Finger22
+  - first:
+      4: 400030
+    second: VAMPIRE_ L Finger3
+  - first:
+      4: 400032
+    second: VAMPIRE_ L Finger31
+  - first:
+      4: 400034
+    second: VAMPIRE_ L Finger32
+  - first:
+      4: 400036
+    second: VAMPIRE_ L Finger4
+  - first:
+      4: 400038
+    second: VAMPIRE_ L Finger41
+  - first:
+      4: 400040
+    second: VAMPIRE_ L Finger42
+  - first:
+      4: 400042
+    second: VAMPIRE_ L Foot
+  - first:
+      4: 400044
+    second: VAMPIRE_ L Forearm
+  - first:
+      4: 400046
+    second: VAMPIRE_ L Hand
+  - first:
+      4: 400048
+    second: VAMPIRE_ L Thigh
+  - first:
+      4: 400050
+    second: VAMPIRE_ L Toe0
+  - first:
+      4: 400052
+    second: VAMPIRE_ L UpperArm
+  - first:
+      4: 400054
+    second: VAMPIRE_ Neck
+  - first:
+      4: 400056
+    second: VAMPIRE_ Neck1
+  - first:
+      4: 400058
+    second: VAMPIRE_ Pelvis
+  - first:
+      4: 400060
+    second: VAMPIRE_ Ponytail1
+  - first:
+      4: 400062
+    second: VAMPIRE_ R Calf
+  - first:
+      4: 400064
+    second: VAMPIRE_ R Clavicle
+  - first:
+      4: 400066
+    second: VAMPIRE_ R Finger0
+  - first:
+      4: 400068
+    second: VAMPIRE_ R Finger01
+  - first:
+      4: 400070
+    second: VAMPIRE_ R Finger02
+  - first:
+      4: 400072
+    second: VAMPIRE_ R Finger1
+  - first:
+      4: 400074
+    second: VAMPIRE_ R Finger11
+  - first:
+      4: 400076
+    second: VAMPIRE_ R Finger12
+  - first:
+      4: 400078
+    second: VAMPIRE_ R Finger2
+  - first:
+      4: 400080
+    second: VAMPIRE_ R Finger21
+  - first:
+      4: 400082
+    second: VAMPIRE_ R Finger22
+  - first:
+      4: 400084
+    second: VAMPIRE_ R Finger3
+  - first:
+      4: 400086
+    second: VAMPIRE_ R Finger31
+  - first:
+      4: 400088
+    second: VAMPIRE_ R Finger32
+  - first:
+      4: 400090
+    second: VAMPIRE_ R Finger4
+  - first:
+      4: 400092
+    second: VAMPIRE_ R Finger41
+  - first:
+      4: 400094
+    second: VAMPIRE_ R Finger42
+  - first:
+      4: 400096
+    second: VAMPIRE_ R Foot
+  - first:
+      4: 400098
+    second: VAMPIRE_ R Forearm
+  - first:
+      4: 400100
+    second: VAMPIRE_ R Hand
+  - first:
+      4: 400102
+    second: VAMPIRE_ R Thigh
+  - first:
+      4: 400104
+    second: VAMPIRE_ R Toe0
+  - first:
+      4: 400106
+    second: VAMPIRE_ R UpperArm
+  - first:
+      4: 400108
+    second: VAMPIRE_ Spine
+  - first:
+      4: 400110
+    second: VAMPIRE_ Spine1
+  - first:
+      43: 4300000
+    second: VAMPIRE
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: VAMPIRE
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VAMPIRE
+    second: {fileID: 2100000, guid: c2e4fcb6a643f814ab4903dc406a78d8, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: <Root Transform>
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 7400000
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips:
+  - 9f74f0c170daf4147b221ef7d9b12ceb
+  - d18349a20520d32448a209d02d59dba3
+  - 57f6f69d47e6ea14d94178c79d10d282
+  - 437eb44dc2f152d45a6a9408f1b1d8cd
+  - f74d27f3d7bb0d24b97660fcdfa98b25
+  - 63b3a403d1db84f419e2108c1e8123be
+  - 033f926cb26c2e44dae2e1bb85f65171
+  - 9dbc25a39ab7fd242af214038151322a
+  - 6a20f39f88f8ee447a37a52c067e3d82
+  - 76cea15d59754784f9089af66e2e2128
+  - e3602a3644a4cec4a8bd1eecd649ab2b
+  - ca02b8b16bce0394f89bcf20ba5023a4
+  - 49785025f613c8e498f33406f454187d
+  - 2a7468ec95f287b499788e8f2e6215ac
+  - 507c6240e699fb844badf42ec8fa5c70
+  - 12b7e4bdfe34a1342af802efc4a77378
+  - 1244b1b8a53a69b46ba05d47d949667a
+  - c1fe988fcbe7a604b88942c5816dd63a
+  - 17539f110bd947747937391f75af7ca4
+  - e5928f477456dcf47b84d27570bafb6b
+  - 4694d14c24850dc41b88847444af5440
+  - e5a2e953a720c6b469d1a85d6da0f131
+  - 974180176bc141e408a17417ade31b0f
+  - 3a3bf52d6747931458673dab2bf9a5ef
+  - 831f9b169d0c8134f834cd1ac10e77fe
+  - 74100d8d9a9ed454eb825ee35b73f3fa
+  - 1cd1d40158d2f3140afb4d9c9f9e4a61
+  - 32db8e49baa420c479171f10ec54c943
+  - 45c31fee3c061a04297df01b70f5f5e9
+  - 7b726778233215648803526b7c6eff48
+  - 73d203ac6aa9f8a48bedb08b5ac695b2
+  - c1011898b4d5836479b735e3ce23e236
+  - 145318cbcf9ab5146b0d5a0e298dbfc9
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: VAMPIRE_
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
