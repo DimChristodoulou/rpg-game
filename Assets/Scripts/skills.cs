@@ -95,6 +95,7 @@ public class skills : MonoBehaviour
                 skill_i.transform.SetParent(gameObject.transform);
                 skill_i.AddComponent<Image>();
                 skill_i.GetComponent<Image>().sprite = currentMinimumLevelSkills[j].skill_image;
+                skill_i.AddComponent<onHoverOverSkillImage>();
                 Debug.Log(i + " - " + j + " - " + subWindowHeight + " - " + j*subWindowHeight);
                 Vector2 skillPos;
                 if( frequencyOfSkillsByLevel[distinctMinimumLevels[i]] > 1)
