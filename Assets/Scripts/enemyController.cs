@@ -9,9 +9,10 @@ using Devdog.InventoryPro;
 public class enemyController : MonoBehaviour
 {
 
+    public enemyScriptableObject currentEnemy;
     public float lookRadius = 10f;
     NavMeshAgent agent;
-    public Transform target;
+    public GameObject target;
     public Animator myAnimation;
     public int level;
     public int maxHitPoints;
@@ -22,25 +23,32 @@ public class enemyController : MonoBehaviour
     private IStat pStrength;
     private IStat pMinAttack;
     private IStat pMaxAttack;
+    private bool isInRange = false;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         myAnimation.SetBool("isWalking",false);
+        myAnimation.SetBool("isAttacking",false);
         enemyPanel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
+        float distance = Vector3.Distance(target.transform.position, transform.position);
         if(distance <= lookRadius){
-            agent.SetDestination(target.position);
+            agent.SetDestination(target.transform.position);
             myAnimation.SetBool("isWalking",true);
-            if(distance <= agent.stoppingDistance){
-                //Attack the target
+            if(distance <= agent.stoppingDistance && !isInRange){
+                InvokeRepeating("AttackTarget", 0, 3);
+                isInRange = true;
                 FaceTarget();
+            }
+            else if(distance > agent.stoppingDistance){
+                CancelInvoke("AttackTarget");
+                isInRange = false;
             }
         }
 
@@ -78,15 +86,23 @@ public class enemyController : MonoBehaviour
 
         if(currDist<=2f){
             float damage = Random.Range(pMinAttack.currentValue, pMaxAttack.currentValue) + pStrength.currentValue;
+            playerRef.GetComponent<myPlayer>().myAnimation.SetBool("isAttacking",true);
             Debug.Log(damage);
-            currHitPoints -= Mathf.RoundToInt(damage);
-            enemyPanel.GetComponentInChildren<TextMeshProUGUI>().text = name + "\n" + currHitPoints + "/" + maxHitPoints;
+            currHitPoints -= Mathf.RoundToInt(damage);            
+            enemyPanel.GetComponentInChildren<TextMeshProUGUI>().text = name + "\n" + currHitPoints + "/" + maxHitPoints;            
         }
+        else
+            playerRef.GetComponent<myPlayer>().myAnimation.SetBool("isAttacking",false);
     }
 
     void FaceTarget(){
-        Vector3 direction = (target.position - transform.position).normalized;
+        Vector3 direction = (target.transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime*5f);
+    }
+
+    void AttackTarget(){
+        myAnimation.SetBool("isAttacking",true);
+        target.GetComponent<myPlayer>().takeDamage(currentEnemy.damage);
     }
 }

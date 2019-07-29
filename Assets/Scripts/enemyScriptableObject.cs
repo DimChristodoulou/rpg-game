@@ -7,6 +7,6 @@ public class enemyScriptableObject : ScriptableObject
 {
     public string name;
     public int level;
-    
+    public float damage;
     public GameObject prefab;
 }
