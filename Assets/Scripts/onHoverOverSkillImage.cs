@@ -1,10 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class onHoverOverSkillImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public List<skills> allSkills;
+
+    private void Start()
+    {
+        
+    }
+
     //Detect if the Cursor starts to pass over the GameObject
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
