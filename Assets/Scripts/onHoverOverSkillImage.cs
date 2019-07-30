@@ -6,11 +6,11 @@ using UnityEngine.EventSystems;
 
 public class onHoverOverSkillImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public List<skills> allSkills;
+    public skillListScriptableObject allSkills;
 
-    private void Start()
-    {
-        
+    private void Start(){
+        allSkills = Resources.Load("allSkills") as skillListScriptableObject;
+        allSkills.skills.Sort((p1,p2)=>p1.id.CompareTo(p2.id));
     }
 
     //Detect if the Cursor starts to pass over the GameObject
