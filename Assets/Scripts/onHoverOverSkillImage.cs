@@ -24,6 +24,8 @@ public class onHoverOverSkillImage : MonoBehaviour, IPointerEnterHandler, IPoint
         //Output to console the GameObject's name and the following message
         //Debug.Log("Cursor Entering " + name + " GameObject");
         temp = name.Split('_');
+        skillInfoPanel.SetActive(true);
+        skillInfoPanel.transform.position = Input.mousePosition + new Vector3(-110,-100,110);
         Debug.Log(allSkills.skills[int.Parse(temp[temp.Length - 1])].skill_name);
     }
 
@@ -32,6 +34,7 @@ public class onHoverOverSkillImage : MonoBehaviour, IPointerEnterHandler, IPoint
     {
         //Output the following message with the GameObject's name
         //Debug.Log("Cursor Exiting " + name + " GameObject");
+        skillInfoPanel.SetActive(false);
         Debug.Log(allSkills.skills[int.Parse(temp[temp.Length - 1])].skill_name);
     }
 }
