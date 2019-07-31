@@ -7,8 +7,13 @@ using UnityEngine.EventSystems;
 public class onHoverOverSkillImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public skillListScriptableObject allSkills;
+    private GameObject skillInfoPanel, skillNameText, skillDescriptionText, skillDamageText;
     private String[] temp;
     private void Start(){
+        skillInfoPanel = GameObject.Find("skillInfoPanel");
+        skillNameText = skillInfoPanel.transform.GetChild(0).gameObject;
+        skillDescriptionText = skillInfoPanel.transform.GetChild(1).gameObject;
+        skillDamageText = skillInfoPanel.transform.GetChild(2).gameObject;
         allSkills = Resources.Load("allSkills") as skillListScriptableObject;
         allSkills.skills.Sort((p1,p2)=>p1.id.CompareTo(p2.id));
     }
