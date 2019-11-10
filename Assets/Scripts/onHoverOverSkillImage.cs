@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,8 +10,10 @@ public class onHoverOverSkillImage : MonoBehaviour, IPointerEnterHandler, IPoint
     public skillListScriptableObject allSkills;
     private GameObject skillInfoPanel, skillNameText, skillDescriptionText, skillDamageText;
     private String[] temp;
+    
     private void Start(){
         skillInfoPanel = GameObject.Find("skillInfoPanel");
+
         skillNameText = skillInfoPanel.transform.GetChild(0).gameObject;
         skillDescriptionText = skillInfoPanel.transform.GetChild(1).gameObject;
         skillDamageText = skillInfoPanel.transform.GetChild(2).gameObject;
@@ -26,7 +29,17 @@ public class onHoverOverSkillImage : MonoBehaviour, IPointerEnterHandler, IPoint
         temp = name.Split('_');
         skillInfoPanel.SetActive(true);
         skillInfoPanel.transform.position = Input.mousePosition + new Vector3(-110,-100,110);
-        Debug.Log(allSkills.skills[int.Parse(temp[temp.Length - 1])].skill_name);
+
+        skillNameText.GetComponent<TextMeshProUGUI>().text =
+            allSkills.skills[int.Parse(temp[temp.Length - 1])].skill_name;
+        
+        skillDescriptionText.GetComponent<TextMeshProUGUI>().text =
+            allSkills.skills[int.Parse(temp[temp.Length - 1])].skill_description;
+        
+        skillDamageText.GetComponent<TextMeshProUGUI>().text =
+            allSkills.skills[int.Parse(temp[temp.Length - 1])].skill_minimum_damage.ToString() + " - " + 
+            allSkills.skills[int.Parse(temp[temp.Length - 1])].skill_maximum_damage.ToString();
+        
     }
 
     //Detect when Cursor leaves the GameObject

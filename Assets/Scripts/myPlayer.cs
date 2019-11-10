@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -17,13 +18,24 @@ public class myPlayer : MonoBehaviour
     public SimpleHealthBar healthBar;
     public GameObject skillsController;
 
-    public float currentHealth, maximumHealth;
-    public int level;
+    public GameObject ClassAndLevelText;
 
+    public float currentHealth, maximumHealth;
+    public int level { get; set; }
+    public string playerClass { get; set; }
+    public string playerRace { get; set; }
+
+    public int totalSkillPoints { get; set; }
+    public int unusedSkillPoints { get; set; }
+    
+    public int currentXP { get; set; }
+    public int totalXP { get; set; }
+    
+    public int totalStatPoints { get; set; }
+    public int unusedStatPoints { get; set; }
 
     // Start is called before the first frame update
-    void Start(){        
-
+    void Start(){
         myAgent = GetComponent<NavMeshAgent>();
         
         skillsController.GetComponent<skills>().buildSkillWindow();
@@ -33,6 +45,16 @@ public class myPlayer : MonoBehaviour
         level = 1;
         maximumHealth = 100.0f;
         currentHealth = maximumHealth;
+        totalSkillPoints = 0;
+        unusedSkillPoints = 0;
+        totalStatPoints = 0;
+        unusedStatPoints = 0;
+        
+        //TODO: CHANGE THIS AS SOON AS CHARACTER CREATION IS IMPLEMENTED
+        playerClass = Localization.ClassFighter;
+        playerRace = Localization.RaceHuman;
+        
+        setClassAndLevelText();
         
         myAnimation.SetBool("isWalking",false);
         myAnimation.SetBool("isRunning",false);
@@ -42,43 +64,46 @@ public class myPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
             toggleSkillWindow();
 
         //Debug.Log(myAnimation.GetBool("isWalking"));        
-        if(Input.GetMouseButton(0)){
+        if (Input.GetMouseButton(0))
+        {
             Ray tempRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
 
-            if(Physics.Raycast(tempRay, out hitInfo, 100, clickables)){                
+            if (Physics.Raycast(tempRay, out hitInfo, 100, clickables))
+            {
                 myAgent.SetDestination(hitInfo.point);
                 //FaceTarget(hitInfo.transform);
-                myAnimation.SetBool("isWalking",true);
+                myAnimation.SetBool("isWalking", true);
                 // Debug.Log(myAgent.remainingDistance);
-                if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)){
-                    myAnimation.SetBool("isWalking",false);
-                    myAnimation.SetBool("isRunning",true);
+                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                {
+                    myAnimation.SetBool("isWalking", false);
+                    myAnimation.SetBool("isRunning", true);
                     myAgent.speed = 5.0f;
                 }
-                else{
-                    myAnimation.SetBool("isWalking",true);
-                    myAnimation.SetBool("isRunning",false);
+                else
+                {
+                    myAnimation.SetBool("isWalking", true);
+                    myAnimation.SetBool("isRunning", false);
                     myAgent.speed = 3.5f;
                 }
-            }               
-        }
-        if (myAgent.remainingDistance <= 1f){
-            myAnimation.SetBool("isWalking",false);
-            myAnimation.SetBool("isRunning",false);
-            if (!myAgent.hasPath || myAgent.velocity.sqrMagnitude == 0f){
-                myAnimation.SetBool("isWalking",false);
-                myAnimation.SetBool("isRunning",false);
             }
         }
-    }
 
-    public void levelUp(int stat1Up, int stat2Up){
-        level++;
+        if (myAgent.remainingDistance <= 1f)
+        {
+            myAnimation.SetBool("isWalking", false);
+            myAnimation.SetBool("isRunning", false);
+            if (!myAgent.hasPath || myAgent.velocity.sqrMagnitude == 0f)
+            {
+                myAnimation.SetBool("isWalking", false);
+                myAnimation.SetBool("isRunning", false);
+            }
+        }
     }
 
     public void takeDamage(float damage){
@@ -107,5 +132,51 @@ public class myPlayer : MonoBehaviour
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         return results.Count > 0;
     }
+    
+    /*
+     * LEVELING AND CHARACTER FUNCTIONS
+     */
+
+    protected void setClassAndLevelText(){
+        ClassAndLevelText.GetComponent<TextMeshProUGUI>().text = Localization.LevelText + " " + 
+                                                                 level + " " + 
+                                                                 playerRace + " " + playerClass;
+    }
+
+    /**
+     * Levels 10,20,30,40 and 50 are milestone levels
+     */
+    public bool isMilestoneLevel(){
+        return (level % 10 == 0) ? true : false;
+    }
+    
+    public void levelUp(){
+        //Increase level
+        int currentPlayerLevel = level;
+        level = ++currentPlayerLevel;
+        
+        //Increase skill points
+        if (isMilestoneLevel()){
+            totalSkillPoints+=2;
+            unusedSkillPoints+=2;
+        }
+        else{
+            totalSkillPoints++;
+            unusedSkillPoints++;
+        }
+        
+        //Increase stat points
+        if (isMilestoneLevel()){
+            totalStatPoints+=10;
+            totalStatPoints+=10;
+        }
+        else{
+            unusedStatPoints += 10;
+            unusedStatPoints += 10;
+        }
+
+        setClassAndLevelText();
+    }
+    
 
 }

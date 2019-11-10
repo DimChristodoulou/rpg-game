@@ -54,12 +54,10 @@ public class skills : MonoBehaviour
 
         float windowWidth = gameObject.GetComponent<RectTransform>().rect.width;
         float windowHeight = gameObject.GetComponent<RectTransform>().rect.height - 100;
-        //Debug.Log(gameObject.GetComponent<RectTransform>().rect.width);
 
         for (int i = 0; i < allSkills.Count; i++){
             // Get how many different minimum levels of skills there are. 
             // We will use this number to define vertical panels inside the main skill window.
-
             if( distinctMinimumLevels.IndexOf(allSkills[i].minimum_level) < 0 ){
                 distinctMinimumLevels.Add(allSkills[i].minimum_level);
                 frequencyOfSkillsByLevel[allSkills[i].minimum_level]=1;
@@ -87,8 +85,6 @@ public class skills : MonoBehaviour
 
                 float subWindowHeight = windowHeight/frequencyOfSkillsByLevel[distinctMinimumLevels[i]];
 
-                //Debug.Log("Frequency i:" + frequencyOfSkillsByLevel[distinctMinimumLevels[i]]);
-
                 //Current skill is currentMinimumLevelSkills[j]
                 GameObject skill_i = new GameObject();
                 skill_i.name = "skill_btn_id_" + currentMinimumLevelSkills[j].id;
@@ -96,22 +92,21 @@ public class skills : MonoBehaviour
                 skill_i.AddComponent<Image>();
                 skill_i.GetComponent<Image>().sprite = currentMinimumLevelSkills[j].skill_image;
                 skill_i.AddComponent<onHoverOverSkillImage>();
-                Debug.Log(i + " - " + j + " - " + subWindowHeight + " - " + j*subWindowHeight);
+                Debug.Log(i + " - " + j + " - " + subWindowHeight + " - " + j*subWindowHeight + " - " + subWindowWidth + " - " + i*subWindowWidth + " - " + windowWidth + " - " + windowHeight);
                 Vector2 skillPos;
                 if( frequencyOfSkillsByLevel[distinctMinimumLevels[i]] > 1)
-                    skillPos = new Vector2((i-1)*subWindowWidth + subWindowWidth/2, (j-1)*subWindowHeight);
+                    skillPos = new Vector2((i-1)*subWindowWidth, (j-1)*subWindowHeight);
                 else
-                    skillPos = new Vector2((i-1)*subWindowWidth + subWindowWidth/2, (j)*subWindowHeight);
+                    skillPos = new Vector2((i-1)*subWindowWidth, (j)*subWindowHeight);
                 skill_i.transform.localPosition = skillPos;
                 skill_i.transform.localScale = new Vector3(0.5f, 0.5f, 1);
 
             }            
         }
 
-        //Debug.Log(allSkills.Count);
+
         for (int i = 0; i < allSkills.Count; i++){
-            //Debug.Log(allSkills[i].name);
-            //Debug.Log(allSkills[i].skill_prerequisites.Count);
+
             if(allSkills[i].skill_prerequisites.Count != 0){
                 List<Vector2> points = new List<Vector2>();
                 GameObject currentSkill = GameObject.Find("skill_btn_id_" + allSkills[i].id);

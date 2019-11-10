@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UICanvas
   - Enemies
+  - StatButtons
   layers:
   - Default
   - TransparentFX

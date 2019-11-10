@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Ghoul
   level: 1
   damage: 10
-  prefab: {fileID: 156854, guid: 09efc08a66079d1489a0aee5d107d882, type: 3}
+  prefab: {fileID: 5098252234837531094, guid: 60a2038faa8eb6a41b6fd5a108e01502, type: 3}
+  xpOnDeath: 50

@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 using Devdog.General;
 using Devdog.InventoryPro;
+using Random = UnityEngine.Random;
 
 public class enemyController : MonoBehaviour
 {
@@ -12,18 +14,24 @@ public class enemyController : MonoBehaviour
     public enemyScriptableObject currentEnemy;
     public float lookRadius = 10f;
     NavMeshAgent agent;
-    public GameObject target;
+    [SerializeField] private GameObject target;
     public Animator myAnimation;
     public int level;
     public int maxHitPoints;
     public int currHitPoints;
     public string name;
-    public GameObject enemyPanel;
+    [SerializeField] private GameObject enemyPanel;
     private GameObject playerRef;
     private IStat pStrength;
     private IStat pMinAttack;
     private IStat pMaxAttack;
     private bool isInRange = false;
+
+    private void Awake()
+    {
+        enemyPanel = GameObject.Find("EnemyWindow");
+        target = GameObject.FindGameObjectWithTag("Player");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -54,10 +62,18 @@ public class enemyController : MonoBehaviour
 
         // If HP below zero destroy enemy
         if(this.currHitPoints <= 0f){
-            Destroy(gameObject);            
-            enemyPanel.GetComponentInChildren<TextMeshProUGUI>().text = "";
-            enemyPanel.SetActive(false);
+            EnemyKilled();
         }
+    }
+
+    private void EnemyKilled()
+    {
+        var stats = PlayerManager.instance.currentPlayer.inventoryPlayer.stats;
+        Destroy(gameObject);            
+        enemyPanel.GetComponentInChildren<TextMeshProUGUI>().text = "";
+        enemyPanel.SetActive(false);
+        IStat xp = stats.Get("Default", "Experience");
+        xp.SetCurrentValueRaw(xp.currentValueRaw + currentEnemy.xpOnDeath); 
     }
 
     void OnDrawGizmosSelected(){

@@ -9,4 +9,5 @@ public class enemyScriptableObject : ScriptableObject
     public int level;
     public float damage;
     public GameObject prefab;
+    public int xpOnDeath;
 }
