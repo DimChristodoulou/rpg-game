@@ -4,6 +4,7 @@ using UnityEngine;
 using Devdog.General;
 using Devdog.InventoryPro;
 using TMPro;
+using UnityEngine.UI;
 
 public class sampleStatView : MonoBehaviour
 {
@@ -16,10 +17,14 @@ public class sampleStatView : MonoBehaviour
     public TextMeshProUGUI dexText;
     public TextMeshProUGUI intText;
     public TextMeshProUGUI xpText;
+    //XP Progress bar used to show how much XP left until next level.
+    private Image progressBar;
+    private TextMeshProUGUI xpProgressText;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
+        progressBar = GameObject.Find("xpProgress").GetComponent<Image>();
+        xpProgressText = GameObject.Find("xpProgressText").GetComponent<TextMeshProUGUI>();
         playerInstance = GameObject.FindWithTag("Player").GetComponent<myPlayer>();
         var stats = PlayerManager.instance.currentPlayer.inventoryPlayer.stats;
         pStrength = stats.Get("Main stats", "Strength");
@@ -52,22 +57,27 @@ public class sampleStatView : MonoBehaviour
             stat.SetCurrentValueRaw(xpDifference);
             playerInstance.levelUp();
         }
+
+        progressBar.fillAmount = (float)(stat.currentValueRaw / globals.XPPerLevel[playerInstance.level]);
+        xpProgressText.text = Localization.StatXP + ": " + stat.currentValueRaw + " / " +
+                              globals.XPPerLevel[playerInstance.level];
+
         updateStatsText(Localization.StatXP, stat);
     }
 
     public void updateStatsText(string statText, IStat stat){
         switch (statText) {
             case Localization.StatStrength:
-                strText.text = Localization.StatStrength + ": " + stat;
+                strText.text = stat.ToString();
                 break;
             case Localization.StatDexterity:
-                dexText.text = Localization.StatDexterity + ": " + stat;
+                dexText.text = stat.ToString();
                 break;
             case Localization.StatIntelligence:
-                intText.text = Localization.StatIntelligence + ": " + stat;
+                intText.text = stat.ToString();
                 break;
             case Localization.StatXP:
-                xpText.text = Localization.StatXP + ": " + stat;
+                xpText.text = stat.ToString();
                 break;
         }
     }

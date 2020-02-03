@@ -57,4 +57,6 @@ public static class globals
         45500, 48600, 51800, 55100, 58500, 62000, 65600, 69300, 73100, 77000,
         81000, 85100, 89300, 93600, 98000, 102500, 107100, 111800, 120000
     };
+    
+    //TODO: Add helper functions for xp text creation (xp to next level and total xp)
 }

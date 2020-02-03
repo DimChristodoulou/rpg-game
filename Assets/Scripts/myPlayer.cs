@@ -13,6 +13,7 @@ public class myPlayer : MonoBehaviour
 {
 
     public LayerMask clickables;
+    private int uilayermask = 1 << 5;
     private NavMeshAgent myAgent;
     public Animator myAnimation;
     public SimpleHealthBar healthBar;
@@ -67,13 +68,14 @@ public class myPlayer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
             toggleSkillWindow();
 
-        //Debug.Log(myAnimation.GetBool("isWalking"));        
+        //Debug.Log(myAnimation.GetBool("isWalking"));
+        
         if (Input.GetMouseButton(0))
         {
             Ray tempRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
-
-            if (Physics.Raycast(tempRay, out hitInfo, 100, clickables))
+            uilayermask = ~uilayermask;
+            if (Physics.Raycast(tempRay, out hitInfo, 100, uilayermask))
             {
                 myAgent.SetDestination(hitInfo.point);
                 //FaceTarget(hitInfo.transform);
@@ -174,6 +176,9 @@ public class myPlayer : MonoBehaviour
             unusedStatPoints += 10;
             unusedStatPoints += 10;
         }
+        
+        //popup level up message
+        StartCoroutine(PopupMessage.setPopupText(Localization.LevelUpText));
 
         setClassAndLevelText();
     }

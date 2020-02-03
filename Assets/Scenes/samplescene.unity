@@ -1560,13 +1560,13 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 1986645683}
+  shadowMapRenderTexture: {fileID: 243395686}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
   outOfPhaseColorStrength: 0.1
   outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
-  shadowDataRenderTexture: {fileID: 1026170652}
+  shadowDataRenderTexture: {fileID: 526801318}
   customDistanceFalloffThreshold: 0.5
   customDistanceFalloffPower: 2
   customCookieDistanceFalloffStartThreshold: 0.1
@@ -2226,20 +2226,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223732017}
   m_CullTransparentMesh: 0
---- !u!84 &227309953
+--- !u!84 &243395686
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Spot Light : Shadow Map Render Texture'
+  m_Name: 'Directional Light : Shadow Map Render Texture'
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   serializedVersion: 3
-  m_Width: 256
+  m_Width: 512
   m_Height: 256
   m_AntiAliasing: 1
   m_MipCount: -1
@@ -3267,7 +3267,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 438319447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0baecbbc8f7ebfb4e9a67eb76fc774c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e29b623e32c9034f9efe056415354d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clickables:
@@ -3798,6 +3798,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 520471642}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &526801318
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Directional Light : Shadow Data Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 32
+  m_Height: 1
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -3895,7 +3930,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d990c837a613c8438b22d39a02bd3b6, type: 3}
+  m_Script: {fileID: 11500000, guid: a3569a2c1ed448c438cf2db6c606b9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 438319453}
@@ -5713,7 +5748,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 794260723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02b8884d67fa694aa23ec0768108ad6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b563b0cb9280d84bb8e86432814e21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   strText: {fileID: 62722333}
@@ -5743,7 +5778,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 794260723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76e130f7b5fca1545ae1093bb193d2a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 245f0be62df8240498a90c9295fdf433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &796152935
@@ -6549,41 +6584,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 990127584}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1026170652
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Directional Light : Shadow Data Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 32
-  m_Height: 1
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1026219980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7099,11 +7099,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104971381}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9330da4be9966a40aab3ac0ca088bd0, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b8a54abb8d98240b1c51407a2b4200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allSkills: []
+  learntSkills: []
+  uiIcons: []
+  skillInfoPanel: {fileID: 1104971381}
+  maximumLevel: 0
 --- !u!1001 &1118881192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8851,6 +8856,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1386787988}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1388836930
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Spot Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 256
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1397705988
 GameObject:
   m_ObjectHideFlags: 0
@@ -11222,7 +11262,7 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 227309953}
+  shadowMapRenderTexture: {fileID: 1388836930}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
@@ -12865,41 +12905,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978350330}
   m_CullTransparentMesh: 0
---- !u!84 &1986645683
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Directional Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1992312334
 GameObject:
   m_ObjectHideFlags: 0
@@ -13812,14 +13817,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2143774520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c19c1385d28d60b46888a58f89c1850f, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b8a54abb8d98240b1c51407a2b4200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   allSkills:
+  - {fileID: 11400000, guid: 25de66daf9eacc24ea28201cc43a85dd, type: 2}
+  - {fileID: 11400000, guid: c84fd0f370aa484418e979cfa9c97c8f, type: 2}
   - {fileID: 11400000, guid: a6d31e90e73b334498f2e52690a27420, type: 2}
   - {fileID: 11400000, guid: 1c9dbad004ce7fc44b7dc5e0b1f45a5a, type: 2}
-  - {fileID: 11400000, guid: c84fd0f370aa484418e979cfa9c97c8f, type: 2}
-  - {fileID: 11400000, guid: 25de66daf9eacc24ea28201cc43a85dd, type: 2}
   learntSkills:
   - {fileID: 0}
   uiIcons: []

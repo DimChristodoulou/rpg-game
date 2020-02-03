@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef684a3e14aa7f4e8a3f8e79bc799bc, type: 3}
+  m_Script: {fileID: 11500000, guid: f85120b85c6c4444da13eb28fff90771, type: 3}
   m_Name: lightning_bolt
   m_EditorClassIdentifier: 
-  id: 0
-  skill_name: Lightning Bolt
-  skill_description: Throws a bolt of lighning
-  minimum_level: 1
-  skill_minimum_damage: 5
-  skill_maximum_damage: 10
-  skill_image: {fileID: 21300000, guid: f9fa59c48bcaf314988f2c2caece74b6, type: 3}
+  id: 2
+  skill_name: test
+  skill_description: test
+  minimum_level: 3
+  skill_minimum_damage: 2
+  skill_maximum_damage: 5
+  skill_image: {fileID: 21300000, guid: 29ee0544a9e494645b9cc843ef664252, type: 3}
   skill_effect: {fileID: 0}
-  prerequisiteSkills: []
+  skill_prerequisites: []

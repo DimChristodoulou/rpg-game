@@ -62,9 +62,16 @@ public class StatWindowController : MonoBehaviour
     
     public void decreaseStrengthStat(){
         IStat pStrength = stats.Get("Main stats", "Strength");
-        pStrength.SetCurrentValueRaw(pStrength.currentValue-1);
-        statManager.updateStatsText(Localization.StatStrength, pStrength);
-        adjustUnusedStatPointsText(false);
+        if (pStrength.currentValue > 0)
+        {
+            pStrength.SetCurrentValueRaw(pStrength.currentValue - 1);
+            statManager.updateStatsText(Localization.StatStrength, pStrength);
+            adjustUnusedStatPointsText(false);
+        }
+        else
+        {    
+            Debug.Log("NOPE");
+        }
     }
     
     public void increaseDexterityStat(){
@@ -76,9 +83,14 @@ public class StatWindowController : MonoBehaviour
     
     public void decreaseDexterityStat(){
         IStat pDexterity = stats.Get("Main stats", "Dexterity");
-        pDexterity.SetCurrentValueRaw(pDexterity.currentValue-1);
-        statManager.updateStatsText(Localization.StatDexterity, pDexterity);
-        adjustUnusedStatPointsText(false);
+        if (pDexterity.currentValue > 0){
+            pDexterity.SetCurrentValueRaw(pDexterity.currentValue - 1);
+            statManager.updateStatsText(Localization.StatDexterity, pDexterity);
+            adjustUnusedStatPointsText(false);
+        }
+        else{
+            Debug.Log("NOPE");
+        }
     }
     
     public void increaseIntelligenceStat(){
@@ -90,9 +102,14 @@ public class StatWindowController : MonoBehaviour
     
     public void decreaseIntelligenceStat(){
         IStat pIntelligence = stats.Get("Main stats", "Intelligence");
-        pIntelligence.SetCurrentValueRaw(pIntelligence.currentValue-1);
-        statManager.updateStatsText(Localization.StatIntelligence, pIntelligence);
-        adjustUnusedStatPointsText(false);
+        if (pIntelligence.currentValue > 0){
+            pIntelligence.SetCurrentValueRaw(pIntelligence.currentValue - 1);
+            statManager.updateStatsText(Localization.StatIntelligence, pIntelligence);
+            adjustUnusedStatPointsText(false);
+        }
+        else{
+            Debug.Log("NOPE");
+        }
     }
 
     public void adjustUnusedStatPointsText(bool statIncreased)
