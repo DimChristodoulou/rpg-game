@@ -68,16 +68,16 @@ public class sampleStatView : MonoBehaviour
     public void updateStatsText(string statText, IStat stat){
         switch (statText) {
             case Localization.StatStrength:
-                strText.text = stat.ToString();
+                strText.text = "Strength: " + stat.ToString();
                 break;
             case Localization.StatDexterity:
-                dexText.text = stat.ToString();
+                dexText.text = "Dexterity: " + stat.ToString();
                 break;
             case Localization.StatIntelligence:
-                intText.text = stat.ToString();
+                intText.text = "Intelligence: " + stat.ToString();
                 break;
             case Localization.StatXP:
-                xpText.text = stat.ToString();
+                xpText.text = "XP: " + stat.ToString();
                 break;
         }
     }

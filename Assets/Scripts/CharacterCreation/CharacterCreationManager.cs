@@ -33,10 +33,10 @@ public class CharacterCreationManager : MonoBehaviour
         rotateClockwise = GameObject.Find("rotateClockwiseBtn");
         rotateAntiClockwise = GameObject.Find("rotateAntiClockwiseBtn");
         
-        raceHuman3DGameObject = GameObject.Find("class_mageblade_lizard_warrior");
         raceElf3DGameObject = GameObject.Find("class_templar_undead");
         raceOrc3DGameObject = GameObject.Find("class_specialist_vampire");
         raceDwarf3DGameObject = GameObject.Find("class_druid_ghoul");
+        raceHuman3DGameObject = GameObject.Find("class_mageblade_lizard_warrior");
 
         setAll3DModelsToInactive();
 

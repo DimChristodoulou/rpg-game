@@ -23,7 +23,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5098252234837531094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca255c20fea88a74caf11eda5abf41ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b7722cac8851a245a826a46e8e8dc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentEnemy: {fileID: 11400000, guid: 25a6654107edf7d4b9f7d988b6c88aaa, type: 2}
@@ -31,8 +31,8 @@ MonoBehaviour:
   target: {fileID: 0}
   myAnimation: {fileID: 5098252234828213642}
   level: 1
-  maxHitPoints: 15
-  currHitPoints: 15
+  maxHitPoints: 10
+  currHitPoints: 10
   name: Ghoul
   enemyPanel: {fileID: 0}
 --- !u!195 &357878658
@@ -66,7 +66,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 156854, guid: 09efc08a66079d1489a0aee5d107d882, type: 3}
       propertyPath: m_Name
-      value: GHOUL_PBR
+      value: Ghoul
       objectReference: {fileID: 0}
     - target: {fileID: 482078, guid: 09efc08a66079d1489a0aee5d107d882, type: 3}
       propertyPath: m_LocalPosition.x
