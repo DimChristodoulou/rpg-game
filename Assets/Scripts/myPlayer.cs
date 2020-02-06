@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /*
  *  Class to attach on the player GO
@@ -16,7 +17,8 @@ public class myPlayer : MonoBehaviour
     private int uilayermask = 1 << 5;
     private NavMeshAgent myAgent;
     public Animator myAnimation;
-    public SimpleHealthBar healthBar;
+    public Image healthBar;
+    public Text healthBarText;
     public GameObject skillsController;
 
     public GameObject ClassAndLevelText;
@@ -60,6 +62,8 @@ public class myPlayer : MonoBehaviour
         myAnimation.SetBool("isWalking",false);
         myAnimation.SetBool("isRunning",false);
         myAnimation.SetBool("isAttacking",false);
+        
+        updateHealthBarText();
     }
 
     // Update is called once per frame
@@ -110,7 +114,13 @@ public class myPlayer : MonoBehaviour
 
     public void takeDamage(float damage){
         currentHealth -= damage;
-        healthBar.UpdateBar(currentHealth, maximumHealth);
+        healthBar.fillAmount = (float)(currentHealth)/100;
+        updateHealthBarText();
+    }
+
+    private void updateHealthBarText()
+    {
+        healthBarText.text = currentHealth + "/" + maximumHealth;
     }
 
     void FaceTarget(Transform target){

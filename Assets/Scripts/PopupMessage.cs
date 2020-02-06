@@ -9,7 +9,7 @@ public class PopupMessage : MonoBehaviour
 
     void Awake()
     {
-        popUpWindow = GameObject.Find("PopUp Message");
+        popUpWindow = GameObject.Find("PopUp Window");
         popUpWindow.SetActive(false);
     }
 

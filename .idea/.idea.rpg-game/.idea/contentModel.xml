@@ -1517,25 +1517,6 @@
               <e p="LICENSE.txt" t="Include" />
             </e>
           </e>
-          <e p="Simple Health Bar" t="Include">
-            <e p="_Asteroids Example" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="AsteroidController.cs" t="Include" />
-                <e p="GameManager.cs" t="Include" />
-                <e p="HealthPickupController.cs" t="Include" />
-                <e p="PlayerController.cs" t="Include" />
-                <e p="PlayerHealth.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Editor" t="Include">
-              <e p="SimpleHealthBarEditor.cs" t="Include" />
-              <e p="SimpleHealthBarWindow.cs" t="Include" />
-            </e>
-            <e p="README.txt" t="Include" />
-            <e p="Scripts" t="Include">
-              <e p="SimpleHealthBar.cs" t="Include" />
-            </e>
-          </e>
           <e p="unity-ui-extensions" t="Include">
             <e p="Editor" t="Include">
               <e p="AccordionElementEditor.cs" t="Include" />
