@@ -885,7 +885,9 @@ MonoBehaviour:
   _wallTiles:
   - {fileID: 1784612528550548, guid: 2d0f20d11945dcf40bc89cbe6339221c, type: 3}
   - {fileID: 1154995300056566, guid: 4da9078f5301e924ea052376eefae3d9, type: 3}
-  _environmentals: []
+  _environmentalProps:
+  - {fileID: 1048753352154994, guid: 296fc91a20f2cfe4c97182c3c87b9aca, type: 3}
+  - {fileID: 1690488025604890, guid: 18951ccf015a1da4bb5df3d63e1077f9, type: 3}
   xDim: {fileID: 1905107667}
   yDim: {fileID: 1749034457}
   parentFolder: {fileID: 1579299123}

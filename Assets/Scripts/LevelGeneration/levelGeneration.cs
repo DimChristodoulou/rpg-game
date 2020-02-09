@@ -11,7 +11,7 @@ public class levelGeneration : MonoBehaviour
     
     [SerializeField] private List<GameObject> _floorTiles;
     [SerializeField] private List<GameObject> _wallTiles;
-    [SerializeField] private List<GameObject> _environmentals;
+    [SerializeField] private List<GameObject> _environmentalProps;
     [SerializeField] private TMP_InputField xDim;
     [SerializeField] private TMP_InputField yDim;
     [SerializeField] private Transform parentFolder;
@@ -66,7 +66,8 @@ public class levelGeneration : MonoBehaviour
         debugWidthsAndLengths();
         
         generateFloor();
-        generateWalls();
+        //generateWalls();
+        //generateEnvironmentalProps();
     }
 
     private void debugWidthsAndLengths()
@@ -111,6 +112,26 @@ public class levelGeneration : MonoBehaviour
                 tiles[i,j].transform.SetParent(parentFolder);
                 tiles[i, j].name = "floor_" + i + "_" + j;
             }
+        }
+    }
+
+    private void generateEnvironmentalProps() {
+        int numOfProps = Random.Range(0, x * y);
+        Debug.Log(numOfProps);
+        List<Tuple<int, int>> occupiedSpaces = new List<Tuple<int, int>>();
+        Tuple<int, int> coords = new Tuple<int, int>(Random.Range(0, x), Random.Range(0, y));
+        GameObject prop = null;
+        
+        for (int i = 0; i < numOfProps; i++) {
+            while (occupiedSpaces.Contains(coords)) {
+                coords = new Tuple<int, int>(Random.Range(0, x), Random.Range(0, y));
+            }
+            
+            occupiedSpaces.Add(coords);
+            prop = Instantiate(_environmentalProps[Random.Range(0, _environmentalProps.Count)]);
+            prop.transform.position = new Vector3(coords.Item1*floorWidths[0], 0, coords.Item2*floorWidths[0]);
+            prop.transform.SetParent(parentFolder);
+            prop.name = "prop_" + coords.Item1 + "_" + coords.Item2;
         }
     }
 
