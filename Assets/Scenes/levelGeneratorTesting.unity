@@ -878,13 +878,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03e76c3f29d3c24486e2b8f110a361f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelTiles:
+  _floorTiles:
   - {fileID: 1321917378138086, guid: 475b905fe3b32864fb3448b79d6bc815, type: 3}
-  - {fileID: 1784612528550548, guid: 2d0f20d11945dcf40bc89cbe6339221c, type: 3}
   - {fileID: 1202548025183796, guid: 3e478002b47486d4f950d8cfd1d23557, type: 3}
   - {fileID: 1518487281943878, guid: efae8855cfb60984ca15c8f28cef128d, type: 3}
-  - {fileID: 1665189016894192, guid: 9b5514e3a83a57e45a255824382d69c5, type: 3}
-  - {fileID: 1712719002670224, guid: b07cad47c7d616d479d277a906a9c0d9, type: 3}
+  _wallTiles:
+  - {fileID: 1784612528550548, guid: 2d0f20d11945dcf40bc89cbe6339221c, type: 3}
+  _environmentals: []
   xDim: {fileID: 1905107667}
   yDim: {fileID: 1749034457}
   parentFolder: {fileID: 1579299123}
