@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+using MathNet.Numerics.Distributions;
+using MathNet.Numerics.Random;
+
 public class levelGeneration : MonoBehaviour
 {
     
@@ -14,6 +17,7 @@ public class levelGeneration : MonoBehaviour
     [SerializeField] private List<GameObject> _environmentalProps;
     [SerializeField] private TMP_InputField xDim;
     [SerializeField] private TMP_InputField yDim;
+    [SerializeField] private Slider sparsity;
     [SerializeField] private Transform parentFolder;
 
     private int EAST_WALL = 0;
@@ -24,6 +28,9 @@ public class levelGeneration : MonoBehaviour
     
     private GameObject[,] tiles;
     private List<float> floorWidths, floorLengths, wallWidths, wallLengths;
+
+    private bool[,] tileExistenceArray;
+    private List<Tuple<int, int>> existingTileCoords;
     
 
     public void prepareRoomGeneration() {
@@ -38,6 +45,19 @@ public class levelGeneration : MonoBehaviour
 
         //Allocate space for the tiles array
         tiles = new GameObject[x, y];
+
+        float weight = sparsity.value;
+        Debug.Log("WEIGHT "+weight);
+        float randomWeight;
+        tileExistenceArray = new bool[x, y];
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                randomWeight = Random.Range(0f, 1f);
+                tileExistenceArray[i, j] = (randomWeight < weight);
+            }
+        }
+        
+        existingTileCoords = new List<Tuple<int, int>>();
         
         //Allocate space for the floorWidths and floorLengths lists
         floorWidths = new List<float>();
@@ -66,8 +86,8 @@ public class levelGeneration : MonoBehaviour
         debugWidthsAndLengths();
         
         generateFloor();
-        //generateWalls();
-        //generateEnvironmentalProps();
+        generateWalls();
+        generateEnvironmentalProps();
     }
 
     private void debugWidthsAndLengths()
@@ -106,25 +126,34 @@ public class levelGeneration : MonoBehaviour
     {
         for (int i = 0; i < x; i++){
             for (int j = 0; j < y; j++) {
-                //Create an x BY y array of tiles and place them in the correct distance
-                tiles[i,j] = Instantiate(_floorTiles[Random.Range(0, _floorTiles.Count)]);
-                tiles[i,j].transform.position = new Vector3(i*floorWidths[0], 0, j*floorWidths[0]);
-                tiles[i,j].transform.SetParent(parentFolder);
-                tiles[i, j].name = "floor_" + i + "_" + j;
+                if (tileExistenceArray[i, j]) {
+                    //Create an x BY y array of tiles and place them in the correct distance
+                    tiles[i, j] = Instantiate(_floorTiles[Random.Range(0, _floorTiles.Count)]);
+                    tiles[i, j].transform.position = new Vector3(i * floorWidths[0], 0, j * floorWidths[0]);
+                    tiles[i, j].transform.SetParent(parentFolder);
+                    tiles[i, j].name = "floor_" + i + "_" + j;
+                }
             }
         }
     }
 
     private void generateEnvironmentalProps() {
-        int numOfProps = Random.Range(0, x * y);
+        getExistingTileCoords();
+        
+        int numOfProps = Random.Range(0, existingTileCoords.Count);
         Debug.Log(numOfProps);
+        
         List<Tuple<int, int>> occupiedSpaces = new List<Tuple<int, int>>();
-        Tuple<int, int> coords = new Tuple<int, int>(Random.Range(0, x), Random.Range(0, y));
+        
+        int index = Random.Range(0, existingTileCoords.Count);
+        Tuple<int, int> coords = new Tuple<int, int>(existingTileCoords[index].Item1, existingTileCoords[index].Item2);
+        
         GameObject prop = null;
         
         for (int i = 0; i < numOfProps; i++) {
             while (occupiedSpaces.Contains(coords)) {
-                coords = new Tuple<int, int>(Random.Range(0, x), Random.Range(0, y));
+                index = Random.Range(0, existingTileCoords.Count);
+                coords = new Tuple<int, int>(existingTileCoords[index].Item1, existingTileCoords[index].Item2);
             }
             
             occupiedSpaces.Add(coords);
@@ -187,5 +216,18 @@ public class levelGeneration : MonoBehaviour
         tiles[i,j].transform.Rotate(0,90,0);
         tiles[i, j].name = wall_type + "_wall_" + i + "_" + j;
         tiles[i,j].transform.SetParent(parentFolder);
+    }
+
+    private void getExistingTileCoords()
+    {
+        Tuple<int, int> existingCoords;
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                if (tileExistenceArray[i, j]) {
+                    existingCoords = new Tuple<int, int>(i, j);
+                    existingTileCoords.Add(existingCoords);
+                }
+            }
+        }
     }
 }
