@@ -84,6 +84,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -168,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useWhenPlayerComesInRange: 0
   blockPlayerInput: 0
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 7288639892835755273}
 --- !u!114 &8843276634694978637
 MonoBehaviour:
   m_ObjectHideFlags: 0

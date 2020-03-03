@@ -2056,7 +2056,6 @@
           <e p="myPlayer.cs" t="Include" />
           <e p="PopupMessage.cs" t="Include" />
           <e p="RendererExtensions.cs" t="Include" />
-          <e p="sampleStatView.cs" t="Include" />
           <e p="Skills" t="Include">
             <e p="onDragSkill.cs" t="Include" />
             <e p="onHoverOverSkillImage.cs" t="Include" />
@@ -2064,6 +2063,7 @@
             <e p="skills.cs" t="Include" />
             <e p="skillsScriptableObject.cs" t="Include" />
           </e>
+          <e p="StatManager.cs" t="Include" />
           <e p="StatWindowController.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

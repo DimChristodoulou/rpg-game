@@ -87,7 +87,7 @@ public class levelGeneration : MonoBehaviour
         
         generateFloor();
         generateWalls();
-        generateEnvironmentalProps();
+        //generateEnvironmentalProps();
     }
 
     private void debugWidthsAndLengths()
@@ -218,8 +218,7 @@ public class levelGeneration : MonoBehaviour
         tiles[i,j].transform.SetParent(parentFolder);
     }
 
-    private void getExistingTileCoords()
-    {
+    private void getExistingTileCoords() {
         Tuple<int, int> existingCoords;
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
@@ -230,4 +229,5 @@ public class levelGeneration : MonoBehaviour
             }
         }
     }
+    
 }

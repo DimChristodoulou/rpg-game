@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Devdog.General;
+using Devdog.InventoryPro;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -36,6 +38,15 @@ public class myPlayer : MonoBehaviour
     
     public int totalStatPoints { get; set; }
     public int unusedStatPoints { get; set; }
+    
+    private StatsCollection stats;
+    private IStat pStrength;
+    private IStat pIntelligence;
+    private IStat pDexterity;
+    private IStat pExperience;
+
+    private StatManager statManager;
+    private StatWindowController statWindowController;
 
     // Start is called before the first frame update
     void Start(){
@@ -53,6 +64,18 @@ public class myPlayer : MonoBehaviour
         totalStatPoints = 0;
         unusedStatPoints = 0;
         
+        stats = PlayerManager.instance.currentPlayer.inventoryPlayer.stats;
+        pStrength = stats.Get("Main stats", "Strength");
+        pIntelligence = stats.Get("Main stats", "Intelligence");
+        pDexterity = stats.Get("Main stats", "Dexterity");
+
+        pStrength.SetCurrentValueRaw(10);
+        pIntelligence.SetCurrentValueRaw(10);
+        pDexterity.SetCurrentValueRaw(10);
+        
+        statManager = GameObject.Find("Stats Manager").GetComponent<StatManager>();
+        statWindowController = GameObject.Find("Stats Manager").GetComponent<StatWindowController>();
+
         //TODO: CHANGE THIS AS SOON AS CHARACTER CREATION IS IMPLEMENTED
         playerClass = Localization.ClassFighter;
         playerRace = Localization.RaceHuman;
@@ -180,13 +203,13 @@ public class myPlayer : MonoBehaviour
         //Increase stat points
         if (isMilestoneLevel()){
             totalStatPoints+=10;
-            totalStatPoints+=10;
+            unusedStatPoints+=10;
         }
         else{
-            unusedStatPoints += 10;
-            unusedStatPoints += 10;
+            totalStatPoints += 5;
+            unusedStatPoints += 5;
         }
-        
+        statWindowController.adjustUnusedStatPointsText();
         //popup level up message
         StartCoroutine(PopupMessage.setPopupText(Localization.LevelUpText));
 

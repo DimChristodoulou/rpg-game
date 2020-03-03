@@ -6,7 +6,7 @@ using Devdog.InventoryPro;
 using TMPro;
 using UnityEngine.UI;
 
-public class sampleStatView : MonoBehaviour
+public class StatManager : MonoBehaviour
 {
     private myPlayer playerInstance;
     private IStat pStrength;

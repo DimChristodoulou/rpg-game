@@ -9,7 +9,7 @@ using Devdog.InventoryPro;
 public class StatWindowController : MonoBehaviour
 {
     private StatsCollection stats;
-    private sampleStatView statManager;
+    private StatManager statManager;
     private myPlayer playerInstance;
     private TextMeshProUGUI unusedStatPointsText;
     private GameObject[] statButtons;
@@ -26,9 +26,10 @@ public class StatWindowController : MonoBehaviour
     public void Start()
     {
         stats = PlayerManager.instance.currentPlayer.inventoryPlayer.stats;
-        statManager = GameObject.Find("Stats Manager").GetComponent<sampleStatView>();
+        statManager = GameObject.Find("Stats Manager").GetComponent<StatManager>();
         playerInstance = GameObject.FindWithTag("Player").GetComponent<myPlayer>();
-        
+        Debug.Log(playerInstance.unusedStatPoints);
+        adjustUnusedStatPointsText();
         foreach (GameObject statButton in statButtons){
             statButton.SetActive(false);
         }
@@ -57,7 +58,7 @@ public class StatWindowController : MonoBehaviour
         IStat pStrength = stats.Get("Main stats", "Strength");
         pStrength.SetCurrentValueRaw(pStrength.currentValue+1);
         statManager.updateStatsText(Localization.StatStrength, pStrength);
-        adjustUnusedStatPointsText(true);
+        adjustUnusedStatPointsText(true, true);
     }
     
     public void decreaseStrengthStat(){
@@ -66,7 +67,7 @@ public class StatWindowController : MonoBehaviour
         {
             pStrength.SetCurrentValueRaw(pStrength.currentValue - 1);
             statManager.updateStatsText(Localization.StatStrength, pStrength);
-            adjustUnusedStatPointsText(false);
+            adjustUnusedStatPointsText(false, true);
         }
         else
         {    
@@ -78,7 +79,7 @@ public class StatWindowController : MonoBehaviour
         IStat pDexterity = stats.Get("Main stats", "Dexterity");
         pDexterity.SetCurrentValueRaw(pDexterity.currentValue+1);
         statManager.updateStatsText(Localization.StatDexterity, pDexterity);
-        adjustUnusedStatPointsText(true);
+        adjustUnusedStatPointsText(true, true);
     }
     
     public void decreaseDexterityStat(){
@@ -86,7 +87,7 @@ public class StatWindowController : MonoBehaviour
         if (pDexterity.currentValue > 0){
             pDexterity.SetCurrentValueRaw(pDexterity.currentValue - 1);
             statManager.updateStatsText(Localization.StatDexterity, pDexterity);
-            adjustUnusedStatPointsText(false);
+            adjustUnusedStatPointsText(false, true);
         }
         else{
             Debug.Log("NOPE");
@@ -97,7 +98,7 @@ public class StatWindowController : MonoBehaviour
         IStat pIntelligence = stats.Get("Main stats", "Intelligence");
         pIntelligence.SetCurrentValueRaw(pIntelligence.currentValue+1);
         statManager.updateStatsText(Localization.StatIntelligence, pIntelligence);
-        adjustUnusedStatPointsText(true);
+        adjustUnusedStatPointsText(true, true);
     }
     
     public void decreaseIntelligenceStat(){
@@ -105,20 +106,27 @@ public class StatWindowController : MonoBehaviour
         if (pIntelligence.currentValue > 0){
             pIntelligence.SetCurrentValueRaw(pIntelligence.currentValue - 1);
             statManager.updateStatsText(Localization.StatIntelligence, pIntelligence);
-            adjustUnusedStatPointsText(false);
+            adjustUnusedStatPointsText(false, true);
         }
         else{
             Debug.Log("NOPE");
         }
     }
 
-    public void adjustUnusedStatPointsText(bool statIncreased)
+    public void adjustUnusedStatPointsText(bool statIncreased = false, bool statChanged = false)
     {
-        if (statIncreased)
-            playerInstance.unusedStatPoints--;
+        if (statChanged)
+        {
+            if (statIncreased)
+                playerInstance.unusedStatPoints--;
+            else
+                playerInstance.unusedStatPoints++;
+        }
+
+        if (playerInstance.unusedStatPoints == 0)
+            unusedStatPointsText.text = "";
         else
-            playerInstance.unusedStatPoints++;
-        unusedStatPointsText.text = Localization.UnusedStatPoints + ": " + playerInstance.unusedStatPoints;
+            unusedStatPointsText.text = Localization.UnusedStatPoints + ": " + playerInstance.unusedStatPoints;
     }
     
 }

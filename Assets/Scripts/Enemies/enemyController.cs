@@ -69,7 +69,8 @@ public class enemyController : MonoBehaviour
     private void EnemyKilled()
     {
         var stats = PlayerManager.instance.currentPlayer.inventoryPlayer.stats;
-        Destroy(gameObject);            
+        Destroy(gameObject);
+        playerRef.GetComponent<myPlayer>().myAnimation.SetBool("isAttacking",false);
         enemyPanel.GetComponentInChildren<TextMeshProUGUI>().text = "";
         enemyPanel.SetActive(false);
         IStat xp = stats.Get("Default", "Experience");
