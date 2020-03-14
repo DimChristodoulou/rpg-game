@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: fire_ball
   m_EditorClassIdentifier: 
   id: 0
-  skill_name: fire
-  skill_description: b
-  minimum_level: 1
+  skill_name: Fireball
+  skill_description: Throw a ball of fire
+  minimum_level: 2
   skill_minimum_damage: 1
   skill_maximum_damage: 2
   skill_image: {fileID: 21300000, guid: 137adc4b5a4bdb84587af37f8855a33b, type: 3}
